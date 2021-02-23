@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/*all*/
+body{
+    margin:0;
+    height:100%;
+    /* color:azure; */
+    background:transparent url('../others/bg.jpg') center no-repeat ;
+    background-size: cover;
+    min-height:100vh;
+}
+a{
+    color:azure;
+    text-decoration: none !important;
+}
+a:hover{
+    color:#fffa5c;
+}
+input{
+    line-height: 1.5;
+    /* border:double 1px azure; */
+    /* background-color: transparent; */
+    border-radius: .25rem;
+    user-select: none;
+}
+
+h2,h3{
+    color:azure !important;
+}
+
+/*nav*/
+.nav-link{
+    color:azure !important;
+}
+.bg-light{
+    background-color: transparent !important;
+}
+
+.header{
+    color:azure !important;
+    height:15vh;
+}
+.navbar-brand{
+    color:azure !important;
+
+}
+.theaterName{
+    font-family: 'Lobster', cursive;
+    font-size:3em;
+}
+.theaterName img{
+    vertical-align: top;
+}
+
+/*main*/
+#main{
+    min-height:70vh;
+    width:100%;
+    margin:auto;
+    color:azure !important;
+}
+
+/*footer*/
+.footer{
+    height:5vh;
+    width:100%;
+    vertical-align: text-bottom;
+    text-align: center;
+}
+
