@@ -33,6 +33,7 @@ $sess=[
 ];
 
 
+$Admin=new DB("theater_admin");
 $Mem=new DB("theater_mem");
 $News=new DB("theater_news");
 $Movie=new DB("theater_movie");

@@ -1,3 +1,2 @@
-<div class="rb tab">
-    <h2 class="ct">請選擇所需功能</h2>
-</div>
+
+<h2 style="color: #fffa5c !important">請選擇管理項目^^</h2>

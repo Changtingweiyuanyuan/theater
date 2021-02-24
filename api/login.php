@@ -18,3 +18,25 @@ if($chk){
         echo "0";
     }
 }
+
+
+
+if(isset($_POST['adminacc']) && !isset($_POST['adminpw'])){
+    $chk=$Admin->find(['acc'=>$_POST['adminacc']]);
+    if($chk){
+        echo "1";
+    }else{
+        echo "0";
+    }
+}elseif(!empty($_POST['adminacc']) && !empty($_POST['adminpw'])){
+    $chk=$Admin->find(['acc'=>$_POST['adminacc'],'pw'=>$_POST['adminpw']]);
+    if($chk){
+        $_SESSION['admin']=true;
+        echo "1";
+    }else{
+        print_r($chk);
+        echo "0";
+    }
+}
+
+

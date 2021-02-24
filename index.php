@@ -11,6 +11,7 @@ include_once "base.php";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/theater.css">
   <!-- <script src="js/jquery-1.9.1.min.js"></script> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -35,15 +36,13 @@ include_once "base.php";
           <a class="nav-link" href="index.php?do=order">線上訂票</a>
         </li>
         <?php
-        if(empty($_SESSION['mem'])){
+        if(empty($_SESSION['mem']) && empty($_SESSION['admin'])){
         ?>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?do=login">會員登入</a>
+          <a class="nav-link" href="index.php?do=loginmem">會員登入</a>
         </li>
         <?php
-        }?>
-        <?php
-        if(!empty($_SESSION['mem'])){
+        }else if(!empty($_SESSION['mem'])){
         ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,6 +62,20 @@ include_once "base.php";
 </svg>
           </a></li>
           </ul>
+        </li>
+        <?php
+        }?>
+
+        <?php
+        if(empty($_SESSION['admin']) && empty($_SESSION['mem'])){
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?do=loginadmin">管理者登入</a>
+        </li>
+        <?php
+        }else if(!empty($_SESSION['admin']) && empty($_SESSION['mem'])){?>
+        <li class="nav-item">
+          <a class="nav-link" href="backend.php">返回管理</a>
         </li>
         <?php
         }?>
