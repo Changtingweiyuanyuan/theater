@@ -60,6 +60,7 @@ Class DB{
         }else{
             $sql.=" where `id`='$arr'";
         }
+        // echo $sql;
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     function del($arr){
