@@ -33,12 +33,11 @@ $movie=($_GET['id'])??'all';
 <script>
 
 getM('<?=$movie?>');
-    function getM(id){
-        // console.log(id);
-        $.post('api/getM.php',{id},function(re){
+
+    function getM(type){
+        $.post('api/getM.php',{type},function(re){
             console.log(re)
             $("#movie").html(re);
-            // getDays();
         })
     }
 
@@ -57,8 +56,7 @@ function getSession(){
     // console.log(d);
     $.post('api/getS.php',{m,d},function(re){
             console.log(re)
-            // $("#session").html(re);
-            // getBooking();
+            $("#session").html(re);
         })
 }
 </script>
