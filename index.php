@@ -30,7 +30,7 @@ include_once "base.php";
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php?do=movie&id=1">現正熱映</a>
+          <a class="nav-link active" aria-current="page" href="index.php?do=movie">現正熱映</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?do=order">線上訂票</a>
@@ -87,7 +87,7 @@ include_once "base.php";
 
 </div>
 
-<div id="main" class="row">
+<div id="main">
 <!-- main -->
 <?php
 $do=($_GET['do'])??'main';

@@ -21,7 +21,7 @@
 </style>
 <div style="width:100%;text-align:center;"><h2 style="color: #fffa5c !important">現正熱映中的電影</h2></div>
 <div style="width:100%;text-align:-webkit-right" class="m-3 mb-5">
-<select id="type" class="form-select movieselect" aria-label="Default select example">
+<select id="type" class="form-select movieselect">
     <option selected value="all">全部</option>
     <option value="1">愛情片</option>
     <option value="2">喜劇片</option>

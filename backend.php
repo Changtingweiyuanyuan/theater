@@ -96,7 +96,7 @@ include_once "base.php";
 
 </div>
 
-<div id="main" class="row">
+<div id="main">
 <!-- main -->
 <?php
 $do=($_GET['do'])??'main';

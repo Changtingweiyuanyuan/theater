@@ -70,6 +70,7 @@
                 <?php
                 } ?>
                 <div class="text-center" id="editMovieButton">
+                    <input type="button" class="btn btn-primary mb-2" value="修改" onclick="javascript:location.href='backend.php?do=reviseMov&id=<?= $m['id'] ?>'">
                     <input type="button" class="btn btn-primary mb-2" value="<?= ($m['sh'] == 1) ? '隱藏' : '上映' ?>" onclick="display(<?= $m['id'] ?>)">
                     <input type="button" class="btn btn-primary" value="刪除" onclick="del(<?= $m['id'] ?>,'<?= $m['name_c'] ?>')">
                 </div>
@@ -89,9 +90,7 @@
         function del(Mid, name) {
             let del = confirm('確定要刪除 ' + name + ' 此部電影嗎?')
             if (del) {
-                $.post('api/delMov.php', {
-                    Mid
-                }, function() {
+                $.post('api/delMov.php', {table:'theater_movie',Mid}, function() {
                     location.reload();
                 })
             }

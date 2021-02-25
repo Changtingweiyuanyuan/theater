@@ -4,7 +4,6 @@
         width:100%;
         display:flex;
         justify-content: center;
-        
     }
     #mainblock h2{
         position: relative;

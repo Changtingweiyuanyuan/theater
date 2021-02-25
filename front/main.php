@@ -2,10 +2,11 @@
     .carousel-item img {
         filter: grayscale(40%);
         border-radius: .25rem;
+        max-height:290px;
     }
 
     .c {
-        color: azure;
+        color: white;
         height: 30vh;
     }
 
@@ -104,6 +105,7 @@
     </button>
 </div>
 
+<div style="display:flex" class="mt-5">
 <div class="c col-6">
     <h2><b>快速訂票</b></h2>
     <div style="width:100%;" class="mt-5">
@@ -152,7 +154,7 @@
     <div class="moreNews"><button class="btn btn-success" id="moreNews">更多消息</button></div>
 
 </div>
-
+</div>
 <script>
     $("#moreNews").on('click', function(re) {
         location.href = "index.php?do=news";
