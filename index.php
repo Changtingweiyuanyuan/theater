@@ -23,7 +23,7 @@ include_once "base.php";
 <div class="header">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand theaterName" href="index.php"><img src="icon/title.png" style="width:80px">THEATER</a>
+    <a class="navbar-brand theaterName" href="index.php"><img src="icon/title.png" style="width:80px">little theater</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,18 +43,19 @@ include_once "base.php";
         </li>
         <?php
         }else if(!empty($_SESSION['mem'])){
+          $m=$Mem->find(['name'=>$_SESSION['mem']]);
         ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hello <?=$_SESSION['mem']?>
+            <?=($m['status']==0)?'<span style="color:red">帳號封鎖中，請洽客服人員</span>':'Hello '.$_SESSION['mem']?>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
   <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 </svg>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">近期訂單</a></li>
-            <li><a class="dropdown-item" href="#">喜愛電影</a></li>
+            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="#">近期訂單</a></li>
+            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="#">喜愛電影</a></li>
             <li><a class="dropdown-item" onclick="javsscript:location.href='api/logout.php'" style="cursor:pointer">登出
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reply-all-fill" viewBox="0 0 16 16">
   <path d="M8.021 11.9L3.453 8.62a.719.719 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
@@ -75,7 +76,7 @@ include_once "base.php";
         <?php
         }else if(!empty($_SESSION['admin']) && empty($_SESSION['mem'])){?>
         <li class="nav-item">
-          <a class="nav-link" href="backend.php">返回管理</a>
+          <a class="nav-link" href="backend.php" style="color:#e84444 !important;">返回管理</a>
         </li>
         <?php
         }?>
@@ -99,8 +100,6 @@ if(file_exists($file)){
 ?>
 </div>
 
-
-<div class="footer">© 2021 CHANG TING-WEI.</div>
 </div>
 </body>
 

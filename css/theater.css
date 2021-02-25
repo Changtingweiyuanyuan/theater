@@ -5,9 +5,10 @@ body{
     margin:0;
     height:100%;
     /* color:azure; */
-    background:transparent url('../others/bg.jpg') center no-repeat ;
-    background-size: cover;
+    background:transparent url('../others/bg_v2.jpg') center no-repeat ;
+    background-size: 100vw 100%;
     min-height:100vh;
+
 }
 a{
     color:azure;

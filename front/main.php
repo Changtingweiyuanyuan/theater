@@ -84,15 +84,15 @@
 
 <div id="carouselExampleControls" class="carousel slide h-50" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/1.jpg" class="d-block w-100">
+        <?php
+        $cs=$Car->all(['sh'=>1]," order by rank");
+        foreach($cs as $k=>$c){
+            // print_r($cs);
+        ?>
+        <div class="carousel-item <?=($k==0)?'active':''?>">
+            <img src="img/<?=$c['img']?>" class="d-block w-100">
         </div>
-        <div class="carousel-item">
-            <img src="img/2.jpg" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-            <img src="img/3.jpg" class="d-block w-100">
-        </div>
+        <?php }?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -129,7 +129,7 @@
     <h2><b>最新公告</b></h2>
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <?php
-        $ns = $News->all(['sh' => 1], " order by `date`");
+        $ns = $News->all(['sh' => 1], " order by `date` desc limit 0,3");
         foreach ($ns as $k => $n) {
         ?>
 
@@ -142,7 +142,7 @@
                 <div id="flush-collapse<?= $k ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?= $k ?>" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <?= nl2br($n['content']) ?><br>
-                        <span style="color:red"><?= $n['tags'] ?></span>
+                        <span style="color:#e84444"><?= $n['tags'] ?></span>
                     </div>
                 </div>
             </div>

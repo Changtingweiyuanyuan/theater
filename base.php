@@ -22,6 +22,34 @@ $food=[
     5=>'汽水'
 ];
 
+// for($i=1;$i<=20;$i++){
+//     $i.'=>'.ceil($i/5+1).'排'.floor($i%5).'號,';
+// }
+
+
+$seattable=[
+    1=>'1排1號',
+    2=>'1排2號',
+    3=>'1排3號',
+    4=>'1排4號',
+    5=>'1排5號',
+    6=>'2排1號',
+    7=>'2排2號',
+    8=>'2排3號',
+    9=>'2排4號',
+    10=>'2排5號',
+    11=>'3排1號',
+    12=>'3排2號',
+    13=>'3排3號',
+    14=>'3排4號',
+    15=>'3排5號',
+    16=>'4排1號',
+    17=>'4排2號',
+    18=>'4排3號',
+    19=>'4排4號',
+    20=>'4排5號'
+];
+
 $sess=[
     1=>'10:00-12:00',
     2=>'12:00-14:00',
@@ -37,6 +65,7 @@ $Admin=new DB("theater_admin");
 $Mem=new DB("theater_mem");
 $News=new DB("theater_news");
 $Movie=new DB("theater_movie");
+$Car=new DB("theater_carousel");
 
 $Pos=new DB("poster");
 $Order=new DB("order");
@@ -80,13 +109,12 @@ Class DB{
     function save($arr){
         if(isset($arr['id'])){
             $sql="update $this->table set ";
-            //UPDATE `poster` SET `id`=[value-1],`name`=[value-2],`img`=[value-3],`sh`=[value-4],`rank`=[value-5],`ani`=[value-6] WHERE 1
                 foreach($arr as $k=>$v){
                     $tmp[]=sprintf("`%s`='%s'",$k,$v);
                 }
                 $sql.=implode(",",$tmp)." where `id`='{$arr['id']}'";
         }else{
-            //INSERT INTO `poster`(`id`, `name`, `img`, `sh`, `rank`, `ani`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
+
             $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values ('".implode("','",$arr)."')";
         }
 

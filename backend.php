@@ -24,12 +24,15 @@ include_once "base.php";
 <div class="header">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand theaterName" href="index.php"><img src="icon/title.png" style="width:80px">THEATER</a>
+    <a class="navbar-brand theaterName" href="index.php"><img src="icon/title.png" style="width:80px">little theater</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="backend.php?do=mem">會員管理</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="backend.php?do=movie">電影管理</a>
         </li>
@@ -82,7 +85,7 @@ include_once "base.php";
         <?php
         }else if(!empty($_SESSION['admin']) && empty($_SESSION['mem'])){?>
         <li class="nav-item">
-          <a class="nav-link" href="backend.php">返回管理</a>
+          <a class="nav-link" href="api/logout.php">登出</a>
         </li>
         <?php
         }?>
@@ -106,8 +109,6 @@ if(file_exists($file)){
 ?>
 </div>
 
-
-<div class="footer">© 2021 CHANG TING-WEI.</div>
 </div>
 </body>
 

@@ -1,3 +1,4 @@
 <?php
 include_once "../base.php";
-$Movie->del($_POST['Mid']);
+$db=new DB($_POST['table']);
+$db->del($_POST['Mid']);

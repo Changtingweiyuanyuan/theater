@@ -1,71 +1,43 @@
-<div class="ct"><h2>新增電影</h2></div>
-
-<form action="api/addMov.php" method="post" enctype="multipart/form-data">
-
-<table style="display:flex;background:#ccc;width:100%;text-align:left">
-    <tr style="width:100%">
-        <td style="width:25%">出版商</td>
-        <td style="width:25%"><input type="text" name="publish"></td>
-        <td style="width:25%">導演</td>
-        <td style="width:25%"><input type="text" name="director"></td>
-    </tr>
-    <tr>
-        <td>片名</td>
-        <td><input type="text" name="name"></td>
-        <td>片長</td>
-        <td><input type="text" name="length"></td>
-    </tr>
-    <tr>
-        <td>上映日期</td>
-        <td>
-        <select name="y" id="">
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                    </select>
-                    年
-                    <select name="m" id="">
-                        <?php
-                        for($i=1;$i<=12;$i++){?>
-                        <option value="<?=$i?>"><?=$i?></option>
-                        <?php
-                        }?>
-                    </select>
-                    月
-                    <select name="d" id="">
-                        <?php
-                        for($i=1;$i<=31;$i++){?>
-                        <option value="<?=$i?>"><?=$i?></option>
-                        <?php
-                        }?>
-                    </select>
-                        日
-        </td>
-        <td>預告片影片</td>
-        <td><input type="file" name="tra"></td>
-    </tr>
-    <tr>
-        <td>預告片海報</td>
-        <td>
-        <input type="file" name="poster">
-        </td>
-        <td>級數</td>
-        <td>
-            <select name="level" id="">
-                <option value="普遍級.png">普遍級</option>
-                <option value="輔導級.png">輔導級</option>
-                <option value="保護級.png">保護級</option>
-                <option value="限制級.png">限制級</option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td>電影簡介</td>
-        <td colspan="3">
-        <textarea name="intro" id="" cols="30" rows="10"></textarea>
-        </td>
-    </tr>
-</table>
-
-
-    <input type="submit" value="新增電影"><input type="reset" value="重置">
-</form>
+<style>
+    #addMovie{
+        width:700px;
+        margin:auto;
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+        backdrop-filter: blur( 6.5px );
+        text-align: center;
+    }
+    #addMovie img{
+        width: 115px;
+        transform: rotate(315deg);
+        position: absolute;
+        top: -82px;
+        right: -65px;
+    }
+    #addMovie .form-control{
+        color: #198754;
+    }
+    .fa-film{
+        color: #ab8aad;
+        font-size: 50px;
+    }
+</style>
+<!-- `name_c`, `name_e`, `length`, `level`, `type`, `ondate`, `actor`, `poster`, `background`, `trailer`, `intro`, `sh`, `rank`, `heart` -->
+<!-- <form action="" method="post" enctype="multipart/form-data"> -->
+    <div id="addMovie" class="p-5">
+    <img src="icon/54897831.png">
+    <div class="mb-5" style="color: white;text-align:right;background-color: #666666;-webkit-background-clip:text;text-shadow: rgb(255 255 255 / 50%) 0px 3px 3px;font-weight: bolder;">ADD MOVIE</div>
+    <i class="fas fa-film"></i>
+    <div style="color:#fffa5c;text-align:right">圖片長寬限制:1920x500</div>
+    <div class="mb-3">
+        <label for="formFileMultiple" class="form-label"></label>
+        <input class="form-control" type="file" id="formFileMultiple" name="img" multiple>
+    </div>
+    <input class="form-control" type="text" placeholder="檔案名稱" name="name">
+    <div class="m-4">
+        <input type="submit" class="btn btn-primary mb-2" style="background-color:#51306e;border:none;font-weight:bolder;" value="新增">
+        <input type="button" onclick="javascript:history.go(-1)" style="background-color:#51306e;border:none;font-weight:bolder;" class="btn btn-primary mb-2" value="返回">
+    </div>
+    </div>
+<!-- </form> -->

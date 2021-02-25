@@ -1,6 +1,7 @@
 <?php
 include_once "../base.php";
-
-$m=$Movie->find($_POST['Mid']);
+$db=new DB($_POST['table']);
+$m=$db->find($_POST['Mid']);
 $m['sh']=($m['sh']+1)%2;
-$Movie->save($m);
+$db->save($m);
+// print_r($m);

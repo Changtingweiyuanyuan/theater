@@ -71,30 +71,7 @@
                 } ?>
                 <div class="text-center" id="editMovieButton">
                     <input type="button" class="btn btn-primary mb-2" value="<?= ($m['sh'] == 1) ? '隱藏' : '上映' ?>" onclick="display(<?= $m['id'] ?>)">
-                    <!--  -->
                     <input type="button" class="btn btn-primary" value="刪除" onclick="del(<?= $m['id'] ?>,'<?= $m['name_c'] ?>')">
-<!--
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(<?= $m['id'] ?>,'<?= $m['name_c'] ?>')">刪除電影</button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
--->
-                    
-                    <!--  -->
                 </div>
                 <?php
                 if ($k < count($ms) - 1) {
@@ -110,7 +87,7 @@
 
     <script>
         function del(Mid, name) {
-            let del = confirm('確定要刪除' + name + '此部電影嗎?')
+            let del = confirm('確定要刪除 ' + name + ' 此部電影嗎?')
             if (del) {
                 $.post('api/delMov.php', {
                     Mid
@@ -121,9 +98,7 @@
         }
 
         function display(Mid) {
-            $.post('api/display.php', {
-                Mid
-            }, function() {
+            $.post('api/display.php', {table:'theater_movie',Mid}, function() {
                 location.reload();
             })
         }
