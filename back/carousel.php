@@ -41,6 +41,7 @@
     }
 
 </style>
+<div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
     <h2 style="color: #fffa5c !important">輪播區圖片管理</h2>
     <button type="button" class="btn btn-success" onclick="addCar()" id="addbutton">新增輪播圖片</button>
@@ -100,6 +101,8 @@ foreach($cs as $k=>$c){
 <?php
 }?>
 </div>
+</div>
+
 <script>
 function addCar(){
     $("#addbutton").fadeOut(500)

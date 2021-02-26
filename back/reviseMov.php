@@ -120,7 +120,7 @@ $m=$Movie->find($_GET['id']);
     </div>
 <input type="hidden" name="id" value="<?=$m['id']?>">
     <div class="m-4">
-        <input type="submit" class="btn btn-primary mb-2" style="background-color:#51306e;border:none;font-weight:bolder;" value="新增">
+        <input type="submit" class="btn btn-primary mb-2" style="background-color:#51306e;border:none;font-weight:bolder;" value="確定修改">
         <input type="button" onclick="javascript:history.go(-1)" style="background-color:#51306e;border:none;font-weight:bolder;" class="btn btn-primary mb-2" value="返回">
     </div>
 </div>

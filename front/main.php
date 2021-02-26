@@ -7,7 +7,6 @@
 
     .c {
         color: white;
-        height: 30vh;
     }
 
     .accordion-button {
@@ -62,6 +61,7 @@
         border-radius: 5px;
         margin-top: 1px;
         color: #fffa5c;
+        display:inline-block;
     }
 
     .movie:hover {
@@ -82,7 +82,7 @@
         color: #6a3b6d;
     }
 </style>
-
+<div id="bb">
 <div id="carouselExampleControls" class="carousel slide h-50" data-bs-ride="carousel">
     <div class="carousel-inner">
         <?php
@@ -126,6 +126,24 @@
         }
         ?>
     </div>
+
+    <div class="dates" style="width:100%;">
+        <?php
+        $today = strtotime(date('Y-m-d'));
+        $startDay = strtotime("-6days", strtotime($today));
+        if(isset($_POST['getMovieid'])){
+            $m=$_POST['getMovieid'];
+            foreach ($ms as $k => $m) {
+                // $showDay 
+            
+        ?>
+            <div class="movie ms-3 ps-5 p-1 pl-4" data-date="<?= $m['name_c'] ?>"><?= $m['name_c'] ?></div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+
 </div>
 <div class="c col-6">
     <h2><b>最新公告</b></h2>
@@ -153,6 +171,7 @@
     </div>
     <div class="moreNews"><button class="btn btn-success" id="moreNews">更多消息</button></div>
 
+</div>
 </div>
 </div>
 <script>
@@ -193,12 +212,16 @@ $(".movie").on('click', function() {
         `)
         $("#bookingMovieDiv").slideDown(500)
         $("#bookingMovie").after(`
-        <div style="width:100%;" class="mt-5">
+        <div style="width:100%;" class="mt-5" id="bookingDateDiv">
         <div id="date" class="ms-3 p-2 text-center">選擇觀看的日期</div>
         </div>
         `);
 
-            getDate();
+        $('#bookingDateDiv').on('click',function(){
+            $.post('index.php',{getMovieid},function(){
+
+            })
+        })
 
 
 

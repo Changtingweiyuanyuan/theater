@@ -15,6 +15,7 @@
         border: none !important;
     }
 </style>
+<div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
     <h2 style="color: #fffa5c !important">上映中電影管理</h2>
     <button type="button" class="btn btn-success" onclick="addMov()">新增電影</button>
@@ -85,7 +86,7 @@
         <hr>
     <?php
     } ?>
-
+</div>
     <script>
         function del(Mid, name) {
             let del = confirm('確定要刪除 ' + name + ' 此部電影嗎?')

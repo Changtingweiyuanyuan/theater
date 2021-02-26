@@ -69,6 +69,7 @@
         height:340px;
     }
 </style>
+<div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
     <h2 style="color: #fffa5c !important">最新消息管理</h2>
     <button type="button" class="btn btn-success" onclick="addCar()" id="addbutton">新增最新消息</button>
@@ -168,6 +169,7 @@ foreach($ns as $k=>$n){
 <hr>
 <?php
 }?>
+</div>
 </div>
 <script>
 function addCar(){

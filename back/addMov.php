@@ -32,6 +32,7 @@
     }
 </style>
 <!-- `name_c`, `name_e`, `length`, `level`, `type`, `ondate`, `actor`, `poster`, `background`, `trailer`, `intro`, `sh`, `rank`, `heart` -->
+
 <form action="api/saveMov.php" method="post" enctype="multipart/form-data">
     <div id="addMovie" class="p-5">
     <img src="icon/54897831.png">

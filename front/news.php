@@ -16,6 +16,7 @@
         font-weight: 600;
     }
 </style>
+<div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
     <h2 style="color: #fffa5c !important">影城最新消息</h2>
 </div>
@@ -63,6 +64,7 @@ if($k!=count($ns)-1){
 }
 
 }?>
+</div>
 </div>
 <script>
     function opNews(newid,div){

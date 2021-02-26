@@ -38,11 +38,11 @@
 <form>
     <div class="form-floating mb-3">
         <input type="text" class="form-control" id="acc" name="acc">
-        <label for="floatingInput">帳號</label>
+        <label for="acc">帳號</label>
     </div>
     <div class="form-floating mb-3">
         <input type="password" class="form-control" id="pw" name="pw">
-        <label for="floatingInput">密碼</label>
+        <label for="pw">密碼</label>
     </div>
     <input class="btn btn-outline-ligth m-2" type="button" value="我要登入">
     <input class="btn btn-outline-light m-2" type="reset" value="重新填寫">

@@ -45,7 +45,7 @@
         font-size: smaller;
     }
 </style>
-
+<div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
     <h2 style="color: #fffa5c !important">訂單管理</h2>
 </div>
@@ -153,6 +153,7 @@ if($o['food']!=NULL && is_array($o['food'])){
 <hr>
 <?php
 }?>
+</div>
 </div>
 <script>
 

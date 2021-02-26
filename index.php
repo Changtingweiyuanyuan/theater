@@ -9,10 +9,9 @@ include_once "base.php";
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>影城</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/theater.css">
-  <!-- <script src="js/jquery-1.9.1.min.js"></script> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/theater.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -54,8 +53,8 @@ include_once "base.php";
 </svg>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="#">近期訂單</a></li>
-            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="#">喜愛電影</a></li>
+            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="index.php?do=memorder&mem=<?=$m['id']?>">近期訂單</a></li>
+            <li><a class="dropdown-item <?=($m['status']==0)?'disabled':''?>" href="index.php?do=heart&mem=<?=$m['id']?>">喜愛電影</a></li>
             <li><a class="dropdown-item" onclick="javsscript:location.href='api/logout.php'" style="cursor:pointer">登出
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reply-all-fill" viewBox="0 0 16 16">
   <path d="M8.021 11.9L3.453 8.62a.719.719 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
@@ -101,6 +100,7 @@ if(file_exists($file)){
 </div>
 
 </div>
+
 </body>
 
 </html>
