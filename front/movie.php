@@ -15,7 +15,7 @@
     }
     #type{
         color: #fff;
-        background-color: #6a3b6d70;
+        background-color: #6a3b6dcc;
         border: none;
     }
 </style>

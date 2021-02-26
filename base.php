@@ -61,9 +61,7 @@ $Mem=new DB("theater_mem");
 $News=new DB("theater_news");
 $Movie=new DB("theater_movie");
 $Car=new DB("theater_carousel");
-
-$Pos=new DB("poster");
-$Order=new DB("order");
+$Order=new DB("theater_Order");
 
 Class DB{
     private $dsn="mysql:host=localhost;charset=utf8;dbname=theater";

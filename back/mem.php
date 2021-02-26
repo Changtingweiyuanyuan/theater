@@ -5,7 +5,7 @@
         border: none !important;
     }
     #memarea .border{
-        color:#198754;
+        color:#25c179;
         font-weight:bolder;
         border:none !important;
         font-size:large;
