@@ -65,6 +65,7 @@
 <?php
 $m = $Movie->find($_GET['id']);
 ?>
+<div id="bb">
 <div style="display:flex;flex-wrap:nowrap;background:#020211;border-radius:10px;min-height: 600px;">
 <img src="img/<?=$m['background']?>" class="introbackground">
 <img src="others/introbg.png" class="backgroundShadow">
@@ -84,22 +85,17 @@ $m = $Movie->find($_GET['id']);
         <div class="m-3 ms-4 mb-5" style="color:#a159a6;font-weight:bolder">上映日期 <?= $m['ondate'] ?></div>
 
     </div>
-    <form action="index.php?do=order&id=<?= $m['id'] ?>" method="get">
+
     <div style="width:75%;text-align:center;height:25%">
-        <input type="submit" value="訂票" class="btn m-3 orderbtn">
+        <input type="button" onclick="javascript:location.href='index.php?do=order&id=<?=$m['id']?>'" value="訂票" class="btn m-3 orderbtn">
         <input type="button" value="回上頁" class="btn m-3 orderbtn" onclick="javascript:history.go(-1)">
     </div>
 </div>
-</form>
+
 <div class="col-5 imgBlock d-flex" style="z-index:2;">
     <div style="height:85%">
     <img src="img/<?= $m['poster'] ?>" style="width:60%" class="m-4 mt-5">
     </div>
-
-    <!--<div id="mp4">
-    <iframe width="841" height="500" scrolling="no" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true" style="width:100%;"></iframe>
-    https://tw.tv.yahoo.com/embed/%E6%B9%AF%E5%A7%86%E8%B2%93%E8%88%87%E5%82%91%E5%88%A9%E9%BC%A0-%E5%89%8D%E5%B0%8E%E9%A0%90%E5%91%8A-055702646.html?format=embed&amp;mode=simpletron&amp;region=TW&amp;lang=zh-Hant-TW&amp;site=tv&amp;autoplay=true
-    </div> -->
 
     <div id="openTra" style="text-align:center;">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -111,52 +107,4 @@ $m = $Movie->find($_GET['id']);
     <!-- <video src="img/<= $m['trailer'] ?>" width="300px" height="250px"></video> -->
 </div>
 </div>
-
-
-<!-- 
-<div class="col-12">
-    <div style="text-align:center;font-size:2em"><b>Movies of the same type</b></div>
-
-
-    <div class="slider center slick-initialized slick-slider">
-        <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
-        <div aria-live="polite" class="slick-list draggable" style="padding: 0px 60px;">
-            <div class="slick-track" style="opacity: 1; width: 100%; transform: translate3d(-882px, 0px, 0px);" role="listbox">
-
-                <div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 147px;" tabindex="-1">
-                    <h3>3</h3>
-                </div>
-                <div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 147px;" tabindex="-1">
-                    <h3>4</h3>
-                </div>
-                <div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 147px;" tabindex="-1">
-                    <h3>5</h3>
-                </div>
-            </div>
-        </div>
-
-        <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
-    </div> 
-
-
-
-</div>-->
-<script>
-$(document).ready(function(){
-
-$.getJSON('api/api.php').done(function(re){
-    console.log(456)
-    // $('#mp4').html(`
-    // <iframe width="841" height="500" src="${re}" scrolling="no" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true" style="width:100%;"></iframe>
-    // `)
-    $("#mp4").attr('src',re)
-});
-
-
-
-
-
-
-
-})
-</script>
+</div>

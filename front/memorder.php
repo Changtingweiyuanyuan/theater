@@ -33,15 +33,15 @@
         display: none;
     }
 </style>
-<div id="bb">
-<div style="width:100%;text-align:center;position:relative" class="mb-5">
-    <h2 style="color: #fffa5c !important"><?=$m['name']?> 的近期訂單</h2>
-</div>
-
-<div id="memarea">
 <?php
 $m=$Mem->find($_GET['mem']);
 ?>
+<div id="bb">
+<div style="width:100%;text-align:center;position:relative" class="mb-5">
+    <h2 style="color: #fffa5c !important"><?=$m['name']?>的訂單</h2>
+</div>
+
+<div id="memarea">
 <div style="display:flex;width:90%;margin-left:auto;margin-right:auto;">
     <div class="p-3" style="width:30%;display:flex;flex-direction:column;">
         <div class="mb-1 ms-2">

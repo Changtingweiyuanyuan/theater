@@ -32,6 +32,10 @@ h2,h3{
 }
 
 /*nav*/
+.navbar-nav{
+    flex-direction: unset !important;
+    justify-content: space-around !important;
+}
 .nav-link{
     color:azure !important;
 }

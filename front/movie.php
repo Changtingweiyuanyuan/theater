@@ -9,6 +9,9 @@
     .movieintroimg:hover {
         filter: brightness(1.2)
     }
+    .movieintroimg:hover .heartimg{
+        filter: brightness(1.2)
+    }
     .movieselect{
         width:250px;
         
@@ -18,7 +21,19 @@
         background-color: #6a3b6dcc;
         border: none;
     }
+    .heartimg {
+        width: 20px !important;
+        height: 20px !important;
+        border: none !important;
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        right: 23px;
+        top: 23px;
+        filter: drop-shadow(2px 2px 1px black);
+    }
 </style>
+<div id="bb">
 <div style="width:100%;text-align:center;"><h2 style="color: #fffa5c !important">現正熱映中的電影</h2></div>
 <div style="width:100%;text-align:-webkit-right" class="m-3 mb-5">
 <select id="type" class="form-select movieselect">
@@ -39,15 +54,28 @@
     $ms = $Movie->all(['sh' => 1], " && `ondate` between '$startDay' and '$today' order by rank");
     foreach ($ms as $k => $m) {
     ?>
-        <div style="display:flex;flex-direction:column;align-items:center;width:fit-content">
+        <div style="display:flex;flex-direction:column;align-items:center;width:fit-content;position:relative">
+
+            <?php
+            if(isset($_SESSION['mem'])){
+                $mem=$Mem->find(['name'=>$_SESSION['mem']]);
+                $chk=$Heart->find(['mem_id'=>$mem['id'],'movie_id'=>$m['id']]);
+                if($chk){
+                    echo '<img src="icon/like.png" class="heartimg">';
+                }
+            }
+            ?>
+
             <a href="?do=movieintro&id=<?= $m['id'] ?>">
                 <img class="movieintroimg" src="img/<?= $m['poster'] ?>" style="width:250px;height:355px">
             </a>
-            <?= $m['name_c'] ?>
+            <div><?= $m['name_c'] ?></div>
         </div>
     <?php } ?>
 
 </div>
+</div>
+
 
 <script>
     $('#type').on('change',function(){

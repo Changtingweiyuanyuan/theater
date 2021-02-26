@@ -2,10 +2,11 @@
 $movie=($_GET['id'])??'all';
 // $m=$Movie->find($_GET['id']);
 ?>
+<div id="bb">
 <div style="width:100%;text-align:center;"><h2 style="color: #fffa5c !important">訂票看電影囉!</h2></div>
 <hr>
 <form>
-    <table style="width:400px;margin:auto">
+    <table style="width:400px;margin:auto" class="mt-5">
         <tr>
             <td style="width:15%">電影</td>
             <td style="width:85%">
@@ -29,7 +30,7 @@ $movie=($_GET['id'])??'all';
         </tr>
     </table>
 </form>
-
+</div>
 <script>
 
 getM('<?=$movie?>');
@@ -38,6 +39,7 @@ getM('<?=$movie?>');
         $.post('api/getM.php',{type},function(re){
             console.log(re)
             $("#movie").html(re);
+            getDays()
         })
     }
 

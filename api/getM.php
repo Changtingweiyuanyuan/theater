@@ -10,12 +10,10 @@ $type=$_POST['type'];
 
 foreach($ms as $m){
     if($type=='all'){
-        echo "<option value='{$m['id']}'>{$m['name_c']}({$m['name_e
-            ']})</option>";
+        echo "<option value='{$m['id']}'>{$m['name_c']}({$m['name_e']})</option>";
     }else{
-        $selected=($type==$m['id'])?'seleceted':'';
-        echo "<option value='{$m['id']}' $selected>{$m['name_c']}({$m['name_e
-            ']})</option>";
+        $selected=($type==$m['id'])?'selected':'';
+        echo "<option value='{$m['id']}' $selected>{$m['name_c']}({$m['name_e']})</option>";
         
     }
 }
