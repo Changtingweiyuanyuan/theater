@@ -14,6 +14,18 @@
         background-color: #51306e !important;
         border: none !important;
     }
+
+    .heartarrow{
+        position:absolute;
+        bottom:0;
+        font-size: xx-large;
+    }
+    .right{
+        right:80px
+    }
+    .left{
+        left:80px;
+    }
 </style>
 <div id="bb">
 <div style="width:100%;text-align:center;position:relative" class="mb-5">
@@ -24,7 +36,12 @@
 
 <div>
     <?php
-    $ms = $Movie->all(' order by rank');
+    $all = $Movie->count();
+    $div = 4;
+    $pages = ceil($all / $div);
+    $now = ($_GET['p']) ?? '1';
+    $start = ($now - 1) * $div;
+    $ms = $Movie->all(" order by rank limit $start,$div");
     foreach ($ms as $k => $m) {
     ?>
 
@@ -86,6 +103,24 @@
         <hr>
     <?php
     } ?>
+
+<div style="width:100%;position:relative" class="mt-4 mb-3">
+<?php
+if (($now - 1) > 0) {
+    echo '<a href="backend.php?do=movie&p=' . ($now - 1) . '"><i class="fas fa-caret-left heartarrow left"></i></a>';
+}
+echo '<div style="width:20%;margin-left: auto;margin-right: auto;display: flex;justify-content: space-evenly;font-size: larger;">';
+for ($i = 1; $i <= $pages; $i++) {
+    echo '<a href="backend.php?do=movie&p=' . ($i) . '">' . ($i) . '</a>';
+}
+echo '</div>';
+if (($now + 1) <= $pages) {
+    echo '<a href="backend.php?do=movie&p=' . ($now + 1) . '"><i class="fas fa-caret-right heartarrow right"></i></a>';
+}
+?>
+</div>
+
+
 </div>
     <script>
         function del(Mid, name) {

@@ -108,7 +108,7 @@ $m=$Mem->find($_GET['mem']);
 $thismonth=date('Y-m');
 $lastmonth=date('Y-m',strtotime("-1months",strtotime($thismonth)));
 $themonthbeforelast=date('Y-m',strtotime("-2months",strtotime($thismonth)));
-        $morders=$Order->all(" where `mem`='{$m['id']}' and `orderdate` like '{$thismonth}%' or `orderdate` like '{$lastmonth}%' or `orderdate` like '{$themonthbeforelast}%' order by `orderdate` and `ordertime`");
+        $morders=$Order->all(" where `mem`='{$m['id']}' and `orderdate` like '{$thismonth}%' or `orderdate` like '{$lastmonth}%' or `orderdate` like '{$themonthbeforelast}%' order by `id` desc");
         if(!empty($morders)){
             foreach($morders as $k=>$o){
                 $seats=unserialize($o['seat']);

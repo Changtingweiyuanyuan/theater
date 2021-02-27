@@ -4,6 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 
+
 $type=[
     1=>'愛情片',
     2=>'喜劇片',
@@ -31,6 +32,12 @@ $food=[
     4=>'紅茶',
     5=>'汽水'
 ];
+
+// 70
+// 100
+// 70
+// 30
+// 30
 
 $seattable=[
     1=>'1排1號',
@@ -121,7 +128,7 @@ Class DB{
 
             $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values ('".implode("','",$arr)."')";
         }
-
+        // echo $sql;
         return $this->pdo->exec($sql);
     }
 
@@ -164,7 +171,7 @@ Class DB{
     }
 
         function q($sql){
-            // echo $sql;
+            echo $sql;
             return $this->pdo->query($sql)->fetchAll();
         }
 }

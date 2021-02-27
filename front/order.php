@@ -5,7 +5,7 @@ $movie=($_GET['id'])??'all';
 <div id="bb">
 <div style="width:100%;text-align:center;"><h2 style="color: #fffa5c !important">訂票看電影囉!</h2></div>
 <hr>
-<form>
+<form action="index.php?do=booking" method="post">
     <table style="width:400px;margin:auto" class="mt-5">
         <tr>
             <td style="width:15%">電影</td>
@@ -26,7 +26,10 @@ $movie=($_GET['id'])??'all';
         </td>
         </tr>
         <tr>
-            <td><input type="button" value="確定" onclick="booking()"><button type="reset">重置</button></td>
+            <td>
+                <input type="submit" value="確定" onclick="booking()">
+                <button type="reset">重置</button>
+            </td>
         </tr>
     </table>
 </form>
@@ -37,7 +40,7 @@ getM('<?=$movie?>');
 
     function getM(type){
         $.post('api/getM.php',{type},function(re){
-            console.log(re)
+            // console.log(re)
             $("#movie").html(re);
             getDays()
         })
@@ -45,20 +48,32 @@ getM('<?=$movie?>');
 
 function getDays(){
     let m=$("#movie").val();
-    // console.log(m);
-    $.post('api/getD.php',{m},function(re){
+    let getdate;
+    getdate='<?=($_GET['date'])??'';?>';
+    console.log(getdate);
+    $.post('api/getD.php',{m,getdate},function(re){
             // console.log(re)
             $("#date").html(re);
             getSession();
         })
 }
 function getSession(){
+    console.log(1321313)
     let m=$("#movie").val();
     let d=$("#date").val();
     // console.log(d);
     $.post('api/getS.php',{m,d},function(re){
-            console.log(re)
+            // console.log(re)
             $("#session").html(re);
         })
 }
+
+// function booking(){
+//     let m=$("#movie").val();
+//     let d=$("#date").val();
+//     let s=$("#session").val();
+//     $.post('index.php?do=booking',{m,d,s},function(){
+//         location.href="index.php?do=booking";
+//     })
+// }
 </script>
