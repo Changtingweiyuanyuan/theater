@@ -12,8 +12,10 @@ include_once "base.php";
   <link rel="stylesheet" href="css/theater.css">
   <!-- <script src="js/jquery-1.9.1.min.js"></script> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/theater.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
 </head>
 
@@ -113,3 +115,4 @@ if(file_exists($file)){
 </body>
 
 </html>
+

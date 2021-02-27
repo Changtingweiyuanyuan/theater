@@ -61,7 +61,9 @@
                 $mem=$Mem->find(['name'=>$_SESSION['mem']]);
                 $chk=$Heart->find(['mem_id'=>$mem['id'],'movie_id'=>$m['id']]);
                 if($chk){
-                    echo '<img src="icon/like.png" class="heartimg">';
+                    echo '<img src="icon/like.png" class="heartimg" onclick="like('.$chk['mem_id'].','.$chk['movie_id'].')">';
+                }else{
+                    echo '<img src="icon/dislike.png" class="heartimg" onclick="like('.$mem['id'].','.$m['id'].')">';
                 }
             }
             ?>
