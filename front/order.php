@@ -1,3 +1,21 @@
+<style>
+    .btn{
+        color: #fff;
+        background-color: #157347;
+        border-color: #146c43;
+        font-weight: bolder;
+        font-size: larger;
+        padding: 5px;
+    }
+    .btn:hover{
+        color:#fffa5c !important
+    }
+    .orderblock .dropdown{
+        background: #fdf982bf;
+        font-weight: bolder;
+        border: none;
+    }
+</style>
 <?php
 $movie=($_GET['id'])??'all';
 // $m=$Movie->find($_GET['id']);
@@ -6,32 +24,33 @@ $movie=($_GET['id'])??'all';
 <div style="width:100%;text-align:center;"><h2 style="color: #fffa5c !important">訂票看電影囉!</h2></div>
 <hr>
 <form action="index.php?do=booking" method="post">
-    <table style="width:400px;margin:auto" class="mt-5">
-        <tr>
-            <td style="width:15%">電影</td>
-            <td style="width:85%">
-        <select name="movie" id="movie" onchange="getDays()"></select>
-        </td>
-        </tr>
-        <tr>
-            <td style="width:15%">日期</td>
-            <td style="width:85%">
-        <select name="date" id="date" onchange="getSession()"></select>
-        </td>
-        </tr>
-        <tr>
-            <td style="width:15%">場次</td>
-            <td style="width:85%">
-        <select name="session" id="session"></select>
-        </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" value="確定" onclick="booking()">
-                <button type="reset">重置</button>
-            </td>
-        </tr>
-    </table>
+<div style="width:100%;display:flex;align-items:center;flex-direction:column" class="mt-5 orderblock">
+<div>
+    <div style="width:15%" class="mt-4">電影</div>
+    <div style="width:460px;" class="mt-2">
+        <select class="form-select dropdown" name="movie" id="movie" onchange="getDays()"></select>
+    </div>
+</div>
+<div>
+    <div style="width:15%" class="mt-4">日期</div>
+    <div style="width:460px;" class="mt-2">
+        <select class="form-select dropdown" name="date" id="date" onchange="getSession()"></select>
+    </div>
+</div>
+<div>
+    
+    <div style="width:15%" class="mt-4">場次</div>
+    <div style="width:460px;" class="mt-2">
+        <select class="form-select dropdown" name="session" id="session"></select>
+    </div>
+</div>
+
+
+</div>
+<div class="mt-5" style="width:100%;display:flex;justify-content:center">
+    <input type="submit" value="確定" onclick="booking()" class="btn me-2">
+    <button type="reset" class="btn ms-2">重置</button>
+</div>
 </form>
 </div>
 <script>

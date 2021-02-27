@@ -171,7 +171,7 @@ Class DB{
     }
 
         function q($sql){
-            echo $sql;
+            // echo $sql;
             return $this->pdo->query($sql)->fetchAll();
         }
 }

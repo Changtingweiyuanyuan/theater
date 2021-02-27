@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-02-27 10:16:11
+-- 產生時間： 2021 年 02 月 27 日 18:34
 -- 伺服器版本： 10.4.17-MariaDB
 -- PHP 版本： 7.4.15
 
@@ -96,7 +96,8 @@ INSERT INTO `theater_heartlog` (`id`, `mem_id`, `movie_id`, `movie_type`) VALUES
 (18, 7, 19, 'a:2:{i:0;s:9:\"驚悚片\";i:1;s:9:\"戰爭片\";}'),
 (20, 7, 5, 'a:2:{i:0;s:9:\"驚悚片\";i:1;s:9:\"恐怖片\";}'),
 (23, 1, 23, 'a:2:{i:0;s:9:\"喜劇片\";i:1;s:9:\"卡通片\";}'),
-(24, 4, 2, 'a:2:{i:0;s:9:\"喜劇片\";i:1;s:9:\"卡通片\";}');
+(24, 4, 2, 'a:2:{i:0;s:9:\"喜劇片\";i:1;s:9:\"卡通片\";}'),
+(25, 4, 23, 'a:2:{i:0;s:9:\"喜劇片\";i:1;s:9:\"卡通片\";}');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,6 @@ CREATE TABLE `theater_mem` (
   `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tel` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `heart` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `buycart` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `status` int(1) UNSIGNED NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -120,12 +120,12 @@ CREATE TABLE `theater_mem` (
 -- 傾印資料表的資料 `theater_mem`
 --
 
-INSERT INTO `theater_mem` (`id`, `acc`, `pw`, `name`, `email`, `tel`, `heart`, `buycart`, `status`) VALUES
-(1, 'chel', '12345', '庭瑋', 'yuan097@kimo.com', '0930931022', 1, 0, 1),
-(4, 'qoooo', 'qqqq', 'q寶', '1111@', '0911', 7, 0, 1),
-(5, '9833', '9833', '媽媽', '9833@', '0930', 0, 0, 1),
-(6, 'yuyu', 'yuyu', 'yuyu', 'yuyu@', '0920', 0, 0, 1),
-(7, 'tingting', '111', 'call me ting ting', 'ting11111@', '0911', 5, 0, 1);
+INSERT INTO `theater_mem` (`id`, `acc`, `pw`, `name`, `email`, `tel`, `heart`, `status`) VALUES
+(1, 'chel', '12345', '庭瑋', 'yuan097@kimo.com', '0930931022', 1, 1),
+(4, 'qoooo', 'qqqq', 'q寶', '1111@', '0911', 8, 1),
+(5, '9833', '9833', '媽媽', '9833@', '0930', 0, 1),
+(6, 'yuyu', 'yuyu', 'yuyu', 'yuyu@', '0920', 0, 1),
+(7, 'tingting', '111', 'call me ting ting', 'ting11111@', '0911', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -228,7 +228,10 @@ INSERT INTO `theater_order` (`id`, `num`, `mem`, `movie`, `moviedate`, `session`
 (1, 2102251216, '4', '女巫們', '2021-02-26', '4', '2021-02-25', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}', 2, 'NULL', 600, '12:16:04'),
 (2, 2102251310, '4', '女巫們', '2021-02-26', '4', '2021-02-25', 'a:2:{i:0;s:1:\"6\";i:1;s:1:\"7\";}', 2, 'NULL', 600, '13:10:05'),
 (3, 2102251907, '4', '女巫們', '2021-02-26', '4', '2021-02-25', 'a:2:{i:0;s:2:\"11\";i:1;s:2:\"12\";}', 2, 'NULL', 600, '19:07:07'),
-(4, 2002251907, '4', '女巫們', '2020-02-28', '4', '2020-02-25', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}', 2, 'NULL', 600, '19:07:07');
+(4, 2002251907, '4', '女巫們', '2020-02-28', '4', '2020-02-25', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}', 2, 'NULL', 600, '19:07:07'),
+(5, 2102280055, '4', '湯姆貓與傑利鼠', '2021-02-28', '1', '2021-02-28', 'a:3:{i:0;s:1:\"3\";i:1;s:1:\"4\";i:2;s:1:\"5\";}', 3, 'a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}', 1130, '00:55:30'),
+(6, 2102280106, '4', '我沒有談的那場戀愛', '2021-02-28', '2', '2021-02-28', 'a:4:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"8\";i:3;s:1:\"9\";}', 4, 'a:2:{i:0;s:1:\"4\";i:1;s:1:\"5\";}', 1270, '01:06:57'),
+(7, 2102280132, '4', '銀龍出任務', '2021-02-28', '1', '2021-02-28', 'a:3:{i:0;s:2:\"13\";i:1;s:2:\"14\";i:2;s:2:\"15\";}', 3, 'a:1:{i:0;s:1:\"4\";}', 935, '01:32:27');
 
 --
 -- 已傾印資料表的索引
@@ -296,7 +299,7 @@ ALTER TABLE `theater_carousel`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `theater_heartlog`
 --
 ALTER TABLE `theater_heartlog`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `theater_mem`
@@ -320,7 +323,7 @@ ALTER TABLE `theater_news`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `theater_order`
 --
 ALTER TABLE `theater_order`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
