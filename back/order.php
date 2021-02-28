@@ -70,19 +70,22 @@ if(isset($_SESSION['ordertypeSQL'])){
     $allorders=$Order->all($_SESSION['ordertypeSQL']);
     unset($_SESSION['ordertypeSQL']);
 }else{
-    $allorders=$Order->all(" where `orderdate` like '{$thismonth}%' or `orderdate` like '{$lastmonth}%' or `orderdate` like '{$themonthbeforelast}%' order by `orderdate` and `ordertime`");
+    $allorders=$Order->all(" where `orderdate` like '{$thismonth}%' or `orderdate` like '{$lastmonth}%' or `orderdate` like '{$themonthbeforelast}%' order by `orderdate` desc");
 }
 foreach($allorders as $k=>$o){
+    
 //food
-if($o['food']!=NULL && is_array($o['food'])){
+if($o['food']!='NULL' && $o['food']!='N;'){
     $tmp=[];
     $ff=unserialize($o['food']);
     foreach($ff as $k=>$f){
-        array_push($tmp,$food[$s]);
+        array_push($tmp,$food[$f]);
     }
     $foods=implode("、",$tmp);
+}else{
+    $foods='';
 }
-
+// print_r($foods);
 ?>
 <div class="mb-2" id="orderli">
     <span class="p-1">訂單編號:<b style="color:red"><?=$o['num']?></b></span>
@@ -92,7 +95,7 @@ if($o['food']!=NULL && is_array($o['food'])){
     <div class="p-3" style="width:80%;display:flex;flex-direction:column;">
 
         <div class="mb-1 ms-1">
-            <span style="padding:3px;color:#25c179;font-weight:bolder;important;font-size:large;">訂購資訊</span>
+            <span style="padding:3px;color:#25c179;font-weight:bolder !important;font-size:large;">訂購資訊</span>
         </div>
 
         <div style="width:100%;display:flex;" class="mb-2">
@@ -105,7 +108,7 @@ if($o['food']!=NULL && is_array($o['food'])){
         </div>
 
         <div class="mb-1 ms-1">
-            <span style="padding:3px;color:#25c179;font-weight:bolder;important;font-size:large;">電影資訊</span>
+            <span style="padding:3px;color:#25c179;font-weight:bolder !important;font-size:large;">電影資訊</span>
         </div>
 
         <div style="width:100%;display:flex;" class="mb-2">
@@ -134,7 +137,7 @@ if($o['food']!=NULL && is_array($o['food'])){
                 ?>
             </div>
             <div class="ms-5" style="width:33%;">
-                <span class="border me-2">加點餐點</span><?=(isset($foods))?"{$foods}":"無加點餐飲"?>
+                <span class="border me-2">加點餐點</span><?=(!empty($foods))?"{$foods}":"無加點餐飲"?>
             </div>
             <div style="width:33%">
                 <span class="border me-2">金額</span><?=$o['money']?>

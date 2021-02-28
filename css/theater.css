@@ -11,6 +11,7 @@ body{
     background-attachment: fixed;
     overflow:visible;
     overflow-x:hidden;
+    min-height:110vh;
 }
 a{
     color:azure;
@@ -53,7 +54,10 @@ h2,h3{
 }
 .theaterName{
     font-family: 'Lobster', cursive;
-    font-size:3em;
+    font-size:3.5em;
+    background: linear-gradient(0deg,#c358ca,#40e2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .theaterName img{
     vertical-align: top;
