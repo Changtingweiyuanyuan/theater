@@ -96,6 +96,18 @@
     display: flex;
     align-items: flex-end;
     }
+
+    #mainReset{
+        background: #dc3545a6;
+        border-radius: 40px;
+        color: black;
+        font-size: smaller !important;
+        position: absolute;
+        top: 10px;
+        left: 140px;
+        cursor:pointer;
+        color:white;
+    }
 </style>
 <div id="bb">
 <div id="carouselExampleControls" class="carousel slide h-50" data-bs-ride="carousel">
@@ -122,7 +134,9 @@
 
 <div style="display:flex" class="mt-5">
 <div class="col-6">
-    <h2><b>快速訂票</b></h2>
+    <div style="position:relative">
+    <h2><b>快速訂票</b></h2><span id="mainReset" onclick="javascript:location.reload()" class="p-1">reset</span>
+    </div>
     <div style="width:100%;" class="mt-5">
         <div id="movie" class="ms-3 p-2 text-center">選擇喜歡的電影</div>
     </div>

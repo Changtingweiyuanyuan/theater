@@ -161,15 +161,15 @@ foreach($rates as $type=>$rate){
                 <div style="width:100%;position:relative" class="mt-4 mb-3">
                     <?php
                     if (($now - 1) > 0) {
-                        echo '<a href="index.php?do=heart&mem='.($h['mem_id']).'&p=' . ($now - 1) . '"><i class="fas fa-caret-left heartarrow left"></i></a>';
+                        echo '<a href="index.php?do=heart&mem='.($m['id']).'&p=' . ($now - 1) . '"><i class="fas fa-caret-left heartarrow left"></i></a>';
                     }
                     echo '<div style="width:20%;margin-left: auto;margin-right: auto;display: flex;justify-content: space-evenly;font-size: larger;">';
                     for ($i = 1; $i <= $pages; $i++) {
-                        echo '<a href="index.php?do=heart&mem='.($h['mem_id']).'&p=' . ($i) . '">' . ($i) . '</a>';
+                        echo '<a href="index.php?do=heart&mem='.($m['id']).'&p=' . ($i) . '">' . ($i) . '</a>';
                     }
                     echo '</div>';
                     if (($now + 1) <= $pages) {
-                        echo '<a href="index.php?do=heart&mem='.($h['mem_id']).'&p=' . ($now + 1) . '"><i class="fas fa-caret-right heartarrow right"></i></a>';
+                        echo '<a href="index.php?do=heart&mem='.($m['id']).'&p=' . ($now + 1) . '"><i class="fas fa-caret-right heartarrow right"></i></a>';
                     }
                     ?>
                 </div>
