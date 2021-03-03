@@ -102,7 +102,7 @@ if(file_exists($file)){
 </div>
 
 </div>
-
+<div class="mt-5" style="color:#76aaea; text-align:center">圖片及資料來源:國賓影城官網(僅作為展示用途 無營利目的)</div>
 </body>
 
 </html>
